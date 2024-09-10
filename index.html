@@ -1,85 +1,13 @@
-<!DOCTYPE html>
-<html lang=”es”>
+<html lang="en" class="">
   <head>
-    <meta charset="utf-8">
-    <script type="text/javascript" src="js/canvas.js">
-      const canvas = document.querySelector('canvas')
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-      const ctx = canvas.getContext('2d')
-      
-      const TOTAL = 30
-      const petalArray = []
-      
-      const petalImg = new Image()
-      petalImg.src = 'https://djjjk9bjm164h.cloudfront.net/petal.png'
-      petalImg.addEventListener('load', () => {
-        for (let i = 0; i < TOTAL; i++) {
-          petalArray.push(new Petal())
-        }
-        render()
-      })
-      
-      function render() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-        petalArray.forEach(petal => petal.animate())
-        window.requestAnimationFrame(render)
-      }
-      
-      window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth
-        canvas.height = window.innerHeight
-      })
-      
-      let mouseX = 0
-      function touchHandler(e) {
-        mouseX = (e.clientX || e.touches[0].clientX) / window.innerWidth
-      }
-      window.addEventListener('mousemove', touchHandler)
-      window.addEventListener('touchmove', touchHandler)
-      
-      // Petal class
-      class Petal {
-        constructor() {
-          this.x = Math.random() * canvas.width
-          this.y = (Math.random() * canvas.height * 2) - canvas.height
-          this.w = 25 + Math.random() * 15
-          this.h = 20 + Math.random() * 10
-          this.opacity = this.w / 40
-          this.flip = Math.random()
-      
-          this.xSpeed = 1.5 + Math.random() * 2
-          this.ySpeed = 1 + Math.random() * 1
-          this.flipSpeed = Math.random() * 0.03
-        }
-      
-        draw() {
-          if (this.y > canvas.height || this.x > canvas.width) {
-            this.x = -petalImg.width
-            this.y = (Math.random() * canvas.height * 2) - canvas.height
-            this.xSpeed = 1.5 + Math.random() * 2
-            this.ySpeed = 1 + Math.random() * 1
-            this.flip = Math.random()
-          }
-          ctx.globalAlpha = this.opacity
-          ctx.drawImage(
-            petalImg, 
-            this.x, 
-            this.y, 
-            this.w * (0.6 + (Math.abs(Math.cos(this.flip)) / 3)), 
-            this.h * (0.8 + (Math.abs(Math.sin(this.flip)) / 5))
-          )
-        }
-      
-        animate() {
-          this.x += this.xSpeed + mouseX * 5
-          this.y += this.ySpeed + mouseX * 2
-          this.flip += this.flipSpeed
-          this.draw()
-        }
-      }
-    </script>
-    <style>
+    <meta charset="UTF-8">
+    <title>CodePen Demo</title>
+    <meta name="robots" content="noindex">
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+    <link rel="canonical" href="https://codepen.io/rudtjd2548/pen/qBpVzxP?editors=1111">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <style id="INLINE_PEN_STYLESHEET_ID">
       html, body {
         width: 100%;
         height: 100%;
@@ -87,12 +15,13 @@
         overflow: hidden;
       }
     </style>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-6d8bf8b4b479137260842506acbb12717dace0823c023e08b96360e60b0840d9.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-44fe83e49b63affec96918c9af88c0d80b209a862cf87ac46bc933074b8c557d.js"></script>
+    <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
   </head>
   <body>
-    <h1>Link a home</h1>
-    <a href="https://boda-ivonnearmando.github.io/home/">Entrar</a>
-    <canvas id=”canvas”>
-      <p>Tu navegador no soporta canvas. Actualizalo para que esta funcionalidad esté disponible</p>
-    </canvas>
+    <canvas width="1077" height="165"></canvas>
+    <script src="https://cdpn.io/cpe/boomboom/pen.js?key=pen.js-ad0063bf-75c5-ffd5-ccb2-13b1271ba5d4" crossorigin=""></script>
   </body>
 </html>
