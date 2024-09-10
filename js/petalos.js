@@ -67,8 +67,8 @@ class Petal {
   }
 
   animate() {
-    this.x += this.xSpeed + mouseX * 5
-    this.y += this.ySpeed + mouseX * 2
+    this.x += this.xSpeed + mouseX * 1
+    this.y += this.ySpeed + mouseX * 1
     this.flip += this.flipSpeed
     this.draw()
   }
